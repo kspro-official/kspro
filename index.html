@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KS-PRO | 글로벌 안전관리 전문 기업</title>
+  <!-- Pretendard 웹폰트 적용 -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-dark: #0f172a;
+      --accent: #2563eb;
+      --safety-orange: #ea580c;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 90px;
+    }
+
+    .container {
+      max-width: 520px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      min-height: 100vh;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Header Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: white;
+      padding: 40px 24px 32px;
+      text-align: center;
+      position: relative;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #93c5fd;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+
+    .hero .tagline {
+      font-size: 15px;
+      color: #cbd5e1;
+      margin-bottom: 20px;
+    }
+
+    .profile-info {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .profile-item {
+      text-align: center;
+    }
+
+    .profile-item .label {
+      font-size: 11px;
+      color: #94a3b8;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .profile-item .value {
+      font-size: 14px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    /* Action Buttons */
+    .quick-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 16px 20px;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+
+    .btn-call {
+      background-color: var(--accent);
+      color: white;
+    }
+
+    .btn-email {
+      background-color: #eff6ff;
+      color: var(--accent);
+      border: 1px solid #bfdbfe;
+    }
+
+    /* Content Sections */
+    .section {
+      padding: 28px 20px;
+      border-bottom: 8px solid var(--bg-light);
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 18px;
+      background-color: var(--accent);
+      border-radius: 2px;
+    }
+
+    .desc-text {
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    /* Cards Grid */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .card {
+      background: var(--bg-light);
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .card-icon {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 4px;
+    }
+
+    .card-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Timeline & Career */
+    .career-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .career-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .career-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .career-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .career-period {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--safety-orange);
+      background: #fff7ed;
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    .career-details {
+      list-style: none;
+    }
+
+    .career-details li {
+      font-size: 13px;
+      color: #475569;
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 4px;
+    }
+
+    .career-details li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* Service List */
+    .service-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .service-box-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #166534;
+      margin-bottom: 6px;
+    }
+
+    /* Fixed Bottom Contact Bar */
+    .fixed-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      border-top: 1px solid var(--border);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: center;
+      z-index: 100;
+      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .fixed-footer-inner {
+      width: 100%;
+      max-width: 520px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Hero Header -->
+    <header class="hero">
+      <div class="badge">SAFETY PROFESSIONAL</div>
+      <h1>KS-PRO</h1>
+      <p class="tagline">글로벌 안전관리 전문 기업</p>
+      
+      <div class="profile-info">
+        <div class="profile-item">
+          <span class="label">대표자</span>
+          <span class="value">최미영</span>
+        </div>
+        <div class="profile-item">
+          <span class="label">전문 분야</span>
+          <span class="value">국내·외 현장 안전관리</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Quick Action Buttons -->
+    <div class="quick-actions">
+      <a href="tel:010-7928-3008" class="btn btn-call">📞 전화 상담</a>
+      <a href="mailto:KSpro@gmail.com" class="btn btn-email">✉️ 이메일 문의</a>
+    </div>
+
+    <!-- 1. 회사 소개 -->
+    <section class="section">
+      <h2 class="section-title">회사 소개</h2>
+      <p class="desc-text">
+        KS-PRO는 다양한 산업 현장에서 축적된 경험을 바탕으로 체계적인 안전관리 서비스를 제공합니다. 
+        해외 프로젝트 경험 기반의 글로벌 안전관리자 및 환경·안전 네트워크를 보유하고 있으며, 다국어 대응이 가능한 전문 인력을 통해 글로벌 프로젝트에서도 원활한 안전관리 수행이 가능합니다.
+      </p>
+    </section>
+
+    <!-- 2. 주요 강점 -->
+    <section class="section">
+      <h2 class="section-title">주요 강점</h2>
+      <div class="grid-cards">
+        <div class="card">
+          <div class="card-icon">🌐</div>
+          <div class="card-title">글로벌 프로젝트</div>
+          <div class="card-desc">국내 및 해외 현장 실무 경험 보유</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🗣️</div>
+          <div class="card-title">다국어 대응</div>
+          <div class="card-desc">영어, 중국어, 일본어 가능 전문 인력</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤝</div>
+          <div class="card-title">해외 네트워크</div>
+          <div class="card-desc">현지 협업 가능한 환경·안전 인프라</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏗️</div>
+          <div class="card-title">풍부한 현장 실무</div>
+          <div class="card-desc">다양한 산업군 안전관리 노하우</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 주요 수행 업무 -->
+    <section class="section">
+      <h2 class="section-title">주요 수행 업무</h2>
+      <div class="service-box">
+        <div class="service-box-title">🛡️ 현장 안전관리 전반</div>
+        <p class="desc-text" style="font-size: 13px;">고위험 작업 관리, 현장 순회 점검 및 작업자 안전 지도</p>
+      </div>
+      <div class="service-box">
+        <div class="service-box-title">📑 전문 안전 문서 작성 & 관리</div>
+        <p class="desc-text" style="font-size: 13px;">PERMIT, PTW, JSA, DRI 등 표준 안전 서류 및 관리 체계 운영</p>
+      </div>
+      <div class="service-box">
+        <div class="service-box-title">💬 미팅 & 커뮤니케이션 지원</div>
+        <p class="desc-text" style="font-size: 13px;">원·하청 안전 회의 및 다국어 글로벌 현장 소통 조율</p>
+      </div>
+    </section>
+
+    <!-- 4. 대표 경력 사항 -->
+    <section class="section">
+      <h2 class="section-title">주요 경력 사항</h2>
+      <div class="career-list">
+        <div class="career-card">
+          <div class="career-header">
+            <span class="career-title">삼성전자 반도체 사업장</span>
+            <span class="career-period">10년</span>
+          </div>
+          <ul class="career-details">
+            <li>대규모 반도체 현장 안전관리 총괄 수행</li>
+            <li>고위험 작업 통제 및 밀착 관리</li>
+            <li>협력업체 안전관리 및 지도·감독</li>
+          </ul>
+        </div>
+
+        <div class="career-card">
+          <div class="career-header">
+            <span class="career-title">해외 프로젝트 프리랜서</span>
+            <span class="career-period">5년 이상</span>
+          </div>
+          <ul class="career-details">
+            <li>해외 현장 안전관리 및 글로벌 커뮤니케이션 대응</li>
+            <li>PERMIT, PTW, JSA, DRI 등 안전문서 작성 및 운영</li>
+          </ul>
+        </div>
+
+        <div class="career-card">
+          <div class="career-header">
+            <span class="career-title">안전전문업체 근무</span>
+            <span class="career-period">3년</span>
+          </div>
+          <ul class="career-details">
+            <li>원·하청 안전관리 체계 및 외주 협력업체 관리</li>
+            <li>안전 서류 및 표준 관리 시스템 구축</li>
+          </ul>
+        </div>
+
+        <div class="career-card">
+          <div class="career-header">
+            <span class="career-title">중소기업 안전관리자</span>
+            <span class="career-period">3년</span>
+          </div>
+          <ul class="career-details">
+            <li>산업안전보건법 법적 대응 및 현장 개선 활동 수행</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 기대 효과 및 문의 -->
+    <section class="section" style="border-bottom: none;">
+      <h2 class="section-title">협업 문의</h2>
+      <p class="desc-text" style="margin-bottom: 16px;">
+        KS-PRO와 함께하시면 현장 안전 리스크를 최소화하고 공정 및 프로젝트 본연의 업무에 집중하실 수 있습니다. 유선 상담 및 미팅 문의는 언제든 환영합니다.
+      </p>
+      <div style="background: #f1f5f9; padding: 14px; border-radius: 8px; font-size: 13px; color: #334155;">
+        <div><strong>연락처:</strong> 010-7928-3008</div>
+        <div style="margin-top: 4px;"><strong>이메일:</strong> KSpro@gmail.com</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Fixed Bottom Bar -->
+  <div class="fixed-footer">
+    <div class="fixed-footer-inner">
+      <a href="tel:010-7928-3008" class="btn btn-call">📞 전화 걸기</a>
+      <a href="mailto:KSpro@gmail.com" class="btn btn-email">✉️ 이메일 문의</a>
+    </div>
+  </div>
+
+</body>
+</html>
